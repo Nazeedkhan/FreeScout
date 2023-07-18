@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="index.css" /> -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: #00013a;
+      font-family: "Nunito", "Helvetica", "Arial", "sans-serif" !important;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 85vh;
+      overflow: hidden;
+    }
+
+    .bubbles {
+      position: relative;
+      display: flex;
+    }
+
+    .bubbles span {
+      position: relative;
+      width: 7px;
+      height: 7px;
+      background-color: #fff;
+      margin: 0 4px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #fff;
+      animation: animate 1000s linear infinite;
+    }
+
+    .bubbles span:nth-child(even) {
+      background: #fff;
+      box-shadow: 0 0 0 0px #ff2d7544, 0 0 0 0px #ff2d75, 0 0 0 0px #fff;
+      animation-duration: calc(85s / var(--i));
+    }
+    .bubbles span:nth-child(odd) {
+      background: #fff;
+      box-shadow: 0 0 0 0px #fff, 0 0 0 0px #fff, 0 0 0 0px #fff;
+      animation-duration: calc(125s / var(--i));
+    }
+
+    @keyframes animate {
+      0% {
+        transform: translateY(100vh) scale(0);
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+      }
+    }
+
+    footer {
+      position: relative;
+      width: 100%;
+      /* background: #3586ff; */
+      min-height: 15vh;
+      padding: 20px 50px;
+    }
+
+    footer .wave {
+      position: absolute;
+      top: -100;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: url("http://front-end-noobs.com/jecko/img/wave-top.png");
+      background-size: 1000px 100px;
+    }
+
+    footer .wave#wave1 {
+      z-index: 1000;
+      opacity: 1;
+      bottom: 0;
+      animation: animateWave 18s linear infinite;
+    }
+    footer .wave#wave2 {
+      z-index: 999;
+      opacity: 0.7;
+      bottom: 10px;
+      animation: animateWave1 10s linear infinite;
+    }
+    footer .wave#wave3 {
+      z-index: 990;
+      opacity: 0.4;
+      bottom: 15px;
+      animation: animateWave2 17s linear infinite;
+    }
+
+    @keyframes animateWave {
+      0% {
+        background-position-x: 1000px;
+      }
+      100% {
+        background-position-x: 0px;
+      }
+    }
+    @keyframes animateWave1 {
+      0% {
+        background-position-x: 0;
+      }
+      100% {
+        background-position-x: 1000px;
+      }
+    }
+    @keyframes animateWave2 {
+      0% {
+        background-position-x: 0;
+      }
+      100% {
+        background-position-x: 1000px;
+      }
+    }
+
+    @media screen and (max-width: 735px) {
+      .bubbles span:nth-child(0) {
+        background: #fff;
+        box-shadow: 0 0 0 0px #fff, 0 0 0 0px #fff, 0 0 0 0px #fff;
+        animation-duration: calc(125s / var(--i));
+      }
+    }
+
+    /* Navbar css starts here */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: 0.6s;
+      padding: 10px 120px;
+      z-index: 100000;
+    }
+
+    header .logo {
+      position: relative;
+      transition: 0.6s;
+    }
+    .logo img {
+      width: 40px;
+    }
+    header ul {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    header ul li {
+      position: relative;
+      list-style: none;
+      text-transform: uppercase;
+      padding: 0 0 0 20px;
+    }
+    header ul li a:hover {
+      color: white;
+      transition: 0.6s;
+    }
+    header ul li a {
+      position: relative;
+      margin: 0 15px;
+      text-decoration: none;
+      color: rgb(143, 140, 140);
+    }
+    /* navbar css ends here */
+
+    /* Middle page css starts here */
+
+    .total {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      transition: 0.6s;
+      padding: 10px 120px;
+      z-index: 100000;
+      position: fixed;
+      top: 20%;
+    }
+
+    .leftSide {
+      width: 49%;
+    }
+
+    .rightSide {
+      width: 49%;
+    }
+
+    .rightSide img {
+      width: 95%;
+    }
+
+    .button {
+      background-color: rgb(38, 230, 124); /* Green */
+      border: none;
+      color: white;
+      /* padding: 15px 32px; */
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      border-radius: 5px;
+      color: #222;
+      margin: 0 40px 0 0;
+      text-transform: uppercase;
+      width: 220px;
+      height: 55px;
+    }
+
+    .button1 {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .leftSide h1 {
+      font-size: 45px;
+      color: white;
+      font-family: "Nunito", "Helvetica", "Arial", "sans-serif" !important;
+    }
+    .leftSide h3 {
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      color: rgb(187, 185, 185);
+      font-family: "Nunito", "Helvetica", "Arial", "sans-serif" !important;
+    }
+    /* Middle page css ends here */
+  </style>
+  <body>
+    <div class="container">
+      <div class="bubbles">
+        <span style="--i: 11"></span>
+        <span style="--i: 12"></span>
+        <span style="--i: 24"></span>
+        <span style="--i: 10"></span>
+        <span style="--i: 14"></span>
+        <span style="--i: 23"></span>
+        <span style="--i: 18"></span>
+        <span style="--i: 16"></span>
+        <span style="--i: 19"></span>
+        <span style="--i: 20"></span>
+        <span style="--i: 22"></span>
+        <span style="--i: 25"></span>
+        <span style="--i: 18"></span>
+        <span style="--i: 21"></span>
+        <span style="--i: 15"></span>
+        <span style="--i: 13"></span>
+        <span style="--i: 26"></span>
+        <span style="--i: 17"></span>
+        <span style="--i: 13"></span>
+        <span style="--i: 20"></span>
+        <span style="--i: 11"></span>
+        <span style="--i: 12"></span>
+        <span style="--i: 24"></span>
+        <span style="--i: 10"></span>
+        <span style="--i: 14"></span>
+        <span style="--i: 23"></span>
+        <span style="--i: 18"></span>
+        <span style="--i: 16"></span>
+        <span style="--i: 19"></span>
+        <span style="--i: 20"></span>
+        <span style="--i: 22"></span>
+        <span style="--i: 25"></span>
+        <span style="--i: 18"></span>
+        <span style="--i: 21"></span>
+        <span style="--i: 15"></span>
+        <span style="--i: 13"></span>
+        <span style="--i: 26"></span>
+        <span style="--i: 24"></span>
+        <span style="--i: 13"></span>
+        <span style="--i: 26"></span>
+        <span style="--i: 17"></span>
+        <span style="--i: 13"></span>
+        <span style="--i: 20"></span>
+        <span style="--i: 11"></span>
+        <span style="--i: 12"></span>
+        <span style="--i: 10"></span>
+        <span style="--i: 14"></span>
+        <span style="--i: 23"></span>
+        <span style="--i: 18"></span>
+        <span style="--i: 16"></span>
+        <span style="--i: 19"></span>
+        <span style="--i: 20"></span>
+        <span style="--i: 22"></span>
+        <span style="--i: 10"></span>
+        <span style="--i: 14"></span>
+        <span style="--i: 23"></span>
+        <span style="--i: 18"></span>
+        <span style="--i: 16"></span>
+        <span style="--i: 19"></span>
+        <span style="--i: 20"></span>
+        <span style="--i: 22"></span>
+        <span style="--i: 25"></span>
+        <span style="--i: 16"></span>
+        <span style="--i: 19"></span>
+        <span style="--i: 20"></span>
+        <span style="--i: 22"></span>
+        <span style="--i: 25"></span>
+        <span style="--i: 18"></span>
+        <span style="--i: 21"></span>
+        <span style="--i: 15"></span>
+        <span style="--i: 13"></span>
+        <span style="--i: 26"></span>
+        <span style="--i: 17"></span>
+        <span style="--i: 13"></span>
+        <span style="--i: 20"></span>
+        <span style="--i: 10"></span>
+        <span style="--i: 14"></span>
+        <span style="--i: 23"></span>
+        <span style="--i: 18"></span>
+        <span style="--i: 16"></span>
+        <span style="--i: 19"></span>
+        <span style="--i: 20"></span>
+        <span style="--i: 22"></span>
+        <span style="--i: 25"></span>
+        <span style="--i: 18"></span>
+        <span style="--i: 21"></span>
+        <span style="--i: 15"></span>
+        <span style="--i: 13"></span>
+        <span style="--i: 26"></span>
+        <span style="--i: 17"></span>
+        <span style="--i: 13"></span>
+        <span style="--i: 20"></span>
+      </div>
+    </div>
+    <footer>
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+      </div>
+    </footer>
+
+    <div>
+      <header>
+        <a href="" class="logo"
+          ><img src="https://www.freeskout.com/img/freeskout.png" alt="img"
+        /></a>
+        <ul>
+          <li><a href="#">brands</a></li>
+          <li><a href="#">influencers</a></li>
+          <li><a href="#">pricing</a></li>
+          <li><a href="#">blogs</a></li>
+          <li><a href="#">contact</a></li>
+        </ul>
+      </header>
+      <div class="total">
+        <div class="leftSide">
+          <h1>Discover. Connect. Collaborate.</h1>
+          <h3>An ecosystem for Social media Influencers and Brands.</h3>
+          <div>
+            <button class="button button1">I'm an Influencer</button>
+            <button class="button button1">I'm a Brand</button>
+          </div>
+        </div>
+        <div class="rightSide">
+          <img
+            src="https://www.freeskout.com/img/top-influencer-profiles/top-3.png"
+            alt="img"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
